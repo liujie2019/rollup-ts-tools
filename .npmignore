@@ -1,0 +1,14 @@
+/.git/
+/.vscode/
+/docs/
+/test/
+/src/
+/node_modules/
+.gitignore
+.npmignore
+tslint.json
+tsconfig.json
+typedoc.json
+jest.config.js
+rollup.config.js
+*.log

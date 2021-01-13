@@ -2,27 +2,40 @@
   "name": "rollup-ts-tools",
   "version": "1.0.0",
   "description": "基于ts和rollup构建的前端工具函数库",
-  "main": "index.js",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "browser": "dist/bundle.umd.js",
   "scripts": {
-    "build": "rollup --config",
+    "build": "NODE_ENV=production npm run clean && rollup -c",
+    "clean": "rimraf dist",
+    "dev": "rollup -c -w",
     "test": "jest --no-cache",
     "doc": "typedoc --options typedoc.json"
   },
   "keywords": [
     "typescript",
     "rollup",
-    "toolkit"
+    "tools",
+    "library"
   ],
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/liujie2019/rollup-ts-tools",
   "author": "liujie",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-eslint": "^8.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@rollup/plugin-typescript": "^8.1.0",
     "@types/jest": "^26.0.19",
     "jest": "^26.6.3",
     "rollup": "^2.35.1",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^26.4.4",
     "tslib": "^2.0.3",
     "typedoc": "^0.19.2",
